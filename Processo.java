@@ -18,25 +18,30 @@ public class Processo {
         this.dataHora = LocalDateTime.now().format(FORMATTER);
     }
 
-    private String prioridadeString(){
+    private String prioridadeString() {
         switch (prioridade) {
-            case 1: return "baixa";
-            case 2: return "médio";
-            case 3: return "urgente";
-            default: return "desconhecido";
+            case 1:
+                return "baixa";
+            case 2:
+                return "médio";
+            case 3:
+                return "urgente";
+            default:
+                return "desconhecido";
         }
     }
 
     @Override
-    public String toString(){
-        return String.format("[%d] %s | %s | %s | %s", protocolo, solicitante, tipoServico, prioridadeString(), dataHora);
+    public String toString() {
+        return String.format("[%d] %s | %s | %s | %s", protocolo, solicitante, tipoServico, prioridadeString(),
+                dataHora);
     }
 
     public int getProtocolo() {
         return protocolo;
     }
 
-    public int getPrioridade(){
+    public int getPrioridade() {
         return prioridade;
     }
 
@@ -44,11 +49,11 @@ public class Processo {
         this.prioridade = prioridade;
     }
 
-    public String getSolicitante(){
+    public String getSolicitante() {
         return solicitante;
     }
-    
-    public void setSolicitante(String solicitante){
+
+    public void setSolicitante(String solicitante) {
         this.solicitante = solicitante;
     }
 
@@ -63,9 +68,9 @@ public class Processo {
     public String getDataHora() {
         return dataHora;
     }
-    
+
     public void setDataHora(String dataHora) {
         this.dataHora = dataHora;
     }
-    
+
 }

@@ -3,14 +3,14 @@ public class VetorDinamico {
     private int tamanho;
     private int capacidadeInicial;
 
-    public VetorDinamico(){
+    public VetorDinamico() {
         this(4);
     }
 
-    public VetorDinamico(int capacidadeInicial){
+    public VetorDinamico(int capacidadeInicial) {
         this.capacidadeInicial = capacidadeInicial;
         this.dados = new Processo[capacidadeInicial];
-        this.tamanho = 0; 
+        this.tamanho = 0;
     }
 
     public void adicionar(Processo processo) {
@@ -32,7 +32,7 @@ public class VetorDinamico {
             dados[i] = dados[i + 1];
         }
 
-        dados[tamanho-1] = null;
+        dados[tamanho - 1] = null;
         tamanho--;
 
         if (tamanho > 0 && tamanho <= dados.length / 4 && dados.length / 2 >= capacidadeInicial) {
@@ -65,7 +65,7 @@ public class VetorDinamico {
         System.out.println("Redimensionado - Capacidade atual:" + novoDados);
     }
 
-    public void listar(){
+    public void listar() {
         if (tamanho == 0) {
             System.out.println("Nenhum processo cadastrado");
             return;
@@ -73,9 +73,25 @@ public class VetorDinamico {
 
         System.out.println("Lista de Processos");
 
-        for(int i = 0; i < tamanho; i++) {
-            System.out.println((i+1) + "-" + dados[i]);
+        for (int i = 0; i < tamanho; i++) {
+            System.out.println((i + 1) + "-" + dados[i]);
         }
         System.out.println("Total:" + tamanho);
     }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public Processo get(int indice) {
+        if(indice < 0 || indice >= tamanho) {
+            return null;
+        }
+        return dados[indice];
+    }
+
+    public boolean isEmpty() {
+        return tamanho == 0;
+    }
+
 }
