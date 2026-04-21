@@ -32,4 +32,18 @@ public class PilhaProcesso {
         return vetor.get(topo);
     }
 
+    public void limpar() {
+        while (!isEmpty()) {
+            pop();
+        }
+        System.out.println("-- A pilha foi limpa --");
+    }
+    
+    public VetorDinamico getVetor() {
+        return vetor;
+    }
+
+    public int tamanho(){
+        return vetor.getTamanho();
+    }
 }
