@@ -70,4 +70,10 @@ public class CentralAtendimento {
         }
         System.out.println("Total Atendido: " + vetor.getTamanho() + "\n");
     }
+    public void mostrarStatus() {
+
+        System.out.println("-- Status do Sistema --");
+        System.out.println("Processos pendentes: " + pilhaPrincipal.tamanho());
+        System.out.println("Processos atendidos: " + pilhaSecundaria.tamanho());
+    }
 }

@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
     private static CentralAtendimento central = new CentralAtendimento();
     private static Scanner scan = new Scanner(System.in);
@@ -62,6 +61,9 @@ public class Main {
             case 5:
                 central.listarHistorico();
                 break;
+            case 6:
+                central.mostrarStatus();
+                break;
             case 0:
                 System.out.println("-- Encerrando --");
                 break;
@@ -91,6 +93,8 @@ public class Main {
             System.out.println("Valor inválido - Usando Normal (2).");
             prioridade = 2;
         }
+        String prioridadeTexto = prioridade == 1 ? "BAIXA" : (prioridade == 2 ? "NORMAL" : "URGENTE");
+        System.out.println("Prioridade selecionada: " + prioridadeTexto);
 
         Processo novoProcesso = new Processo(solicitante, tipoServico, prioridade);
         central.abrirProcesso(novoProcesso);
