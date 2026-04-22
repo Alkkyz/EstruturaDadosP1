@@ -24,6 +24,7 @@ public class Main {
         System.out.println("3 - Desfazer ultimo processo");
         System.out.println("4 - Listar processos pendentes");
         System.out.println("5 - Listar histórico de atendimento");
+        System.out.println("6 - Listar status do sistema");
         System.out.println("0 - Sair");
         System.out.println("Digite sua Opção: ");
     }

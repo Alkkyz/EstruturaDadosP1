@@ -8,10 +8,11 @@ public class Processo {
     private String tipoServico;
     private String dataHora;
 
+    private static int contadorProtocolo = 0;
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
     public Processo(String solicitante, String tipoServico, int prioridade) {
-        this.protocolo = protocolo++;
+        this.protocolo = ++contadorProtocolo;
         this.solicitante = solicitante;
         this.tipoServico = tipoServico;
         this.prioridade = prioridade;
