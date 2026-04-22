@@ -11,18 +11,18 @@ public class CentralAtendimento {
         System.out.println("-- Novo Processo --");
         pilhaPrincipal.push(processo);
 
-        if(!pilhaSecundaria.isEmpty()) {
-        System.out.println("-- Eliminando histórico --");
-        pilhaSecundaria.limpar(); //adicionar limpar()
+        if (!pilhaSecundaria.isEmpty()) {
+            System.out.println("-- Eliminando histórico --");
+            pilhaSecundaria.limpar(); // adicionar limpar()
         }
 
         System.out.println("-- Novo Processo Aberto com Sucesso --");
     }
 
-    public void atenderProximo(){
+    public void atenderProximo() {
         System.out.println("-- Atendendo Novo Processo --");
 
-        if(pilhaPrincipal.isEmpty()) {
+        if (pilhaPrincipal.isEmpty()) {
             System.out.println("-- Não há processos pendentes --");
             return;
         }
@@ -35,7 +35,7 @@ public class CentralAtendimento {
     public void desfazerUltimoAtendimento() {
         System.out.println("-- Desfazendo Último Processo --");
 
-        if(pilhaSecundaria.isEmpty()) {
+        if (pilhaSecundaria.isEmpty()) {
             System.out.println("-- Não há processos no histórico --");
             return;
         }
@@ -47,7 +47,7 @@ public class CentralAtendimento {
     public void listarPendentes() {
         System.out.println("-- Processos Pendentes --");
 
-        if(pilhaPrincipal.isEmpty()) {
+        if (pilhaPrincipal.isEmpty()) {
             System.out.println("-- Nenhum Processo Pendente --");
             return;
         }
@@ -60,10 +60,10 @@ public class CentralAtendimento {
         System.out.println("Total pendentes: " + vetor.getTamanho() + "\n");
     }
 
-    public void listarHistorico(){
+    public void listarHistorico() {
         System.out.println("-- Histórico de Atendimentos --");
 
-        if(pilhaSecundaria.isEmpty()) {
+        if (pilhaSecundaria.isEmpty()) {
             System.out.println("-- Nenhum atendimento realizado --");
             return;
         }

@@ -3,13 +3,13 @@ public class PilhaPrioridade {
     private PilhaProcesso pilhaNormal;
     private PilhaProcesso pilhaUrgente;
 
-    public PilhaPrioridade(){
+    public PilhaPrioridade() {
         this.pilhaBaixa = new PilhaProcesso();
         this.pilhaNormal = new PilhaProcesso();
         this.pilhaUrgente = new PilhaProcesso();
     }
 
-    public void push (Processo processo) {
+    public void push(Processo processo) {
         int prioridade = processo.getPrioridade();
 
         switch (prioridade) {
@@ -17,7 +17,7 @@ public class PilhaPrioridade {
                 pilhaBaixa.push(processo);
                 System.out.println("Processo de prioridade BAIXA adicionado");
                 break;
-            case 2: 
+            case 2:
                 pilhaNormal.push(processo);
                 System.out.println("processo de prioridade NORMAL adicionado");
                 break;
@@ -47,18 +47,18 @@ public class PilhaPrioridade {
     }
 
     public Processo topo() {
-        if (!pilhaUrgente.isEmpty()){
+        if (!pilhaUrgente.isEmpty()) {
             return pilhaUrgente.topo();
-        } else if (!pilhaNormal.isEmpty()){
+        } else if (!pilhaNormal.isEmpty()) {
             return pilhaNormal.topo();
-        } else if (!pilhaBaixa.isEmpty()){
+        } else if (!pilhaBaixa.isEmpty()) {
             return pilhaBaixa.topo();
-        } else{
+        } else {
             throw new PilhaVaziaException("Não há processos");
         }
     }
 
-    public int tamanho(){
+    public int tamanho() {
         return pilhaBaixa.tamanho() + pilhaNormal.tamanho() + pilhaUrgente.tamanho();
     }
 
@@ -66,11 +66,11 @@ public class PilhaPrioridade {
         return pilhaBaixa.isEmpty() && pilhaNormal.isEmpty() && pilhaUrgente.isEmpty();
     }
 
-    public void listar(){
+    public void listar() {
         System.out.println("-- Processo por Prioridade --");
-        
+
         System.out.println("-- URGENTE - prioridade 3 --");
-        if (pilhaUrgente.isEmpty()){
+        if (pilhaUrgente.isEmpty()) {
             System.out.println("Nenhum processo urgente");
         } else {
             VetorDinamico vetor = pilhaUrgente.getVetor();
@@ -82,19 +82,19 @@ public class PilhaPrioridade {
         System.out.println("-- NORMAL - prioridade 2 --");
         if (pilhaNormal.isEmpty()) {
             System.out.println("Nenhum processo normal");
-        } else{
+        } else {
             VetorDinamico vetor = pilhaNormal.getVetor();
-            for(int i = 0; i < vetor.getTamanho(); i++) {
+            for (int i = 0; i < vetor.getTamanho(); i++) {
                 System.out.println(" " + (i + 1) + " - " + vetor.get(i));
             }
         }
 
         System.out.println("-- BAIXO - prioridade 1 --");
-        if(pilhaBaixa.isEmpty()) {
+        if (pilhaBaixa.isEmpty()) {
             System.out.println("Nenhum processo baixo");
         } else {
             VetorDinamico vetor = pilhaBaixa.getVetor();
-            for (int i = 0; i < vetor.getTamanho(); i++){
+            for (int i = 0; i < vetor.getTamanho(); i++) {
                 System.out.println(" " + (i + 1) + " - " + vetor.get(i));
             }
         }
@@ -111,10 +111,12 @@ public class PilhaPrioridade {
     public boolean hasUrgente() {
         return !pilhaUrgente.isEmpty();
     }
-    public boolean hasNormal(){
+
+    public boolean hasNormal() {
         return !pilhaNormal.isEmpty();
     }
-    public boolean hasBaixa(){
+
+    public boolean hasBaixa() {
         return pilhaBaixa.isEmpty();
     }
 

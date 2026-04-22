@@ -5,10 +5,10 @@ public class Main {
     private static Scanner scan = new Scanner(System.in);
     private static int contadorProtocolo = 1;
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         System.out.println("-- Central de Atendimento --\n");
         int opcao;
-        do { 
+        do {
             exibirMenu();
             opcao = lerOpcao();
             processarOpcao(opcao);
@@ -46,7 +46,7 @@ public class Main {
                 try {
                     central.atenderProximo();
                 } catch (PilhaVaziaException e) {
-                    System.out.println("Erro: "+ e.getMessage());
+                    System.out.println("Erro: " + e.getMessage());
                 }
                 break;
             case 3:
@@ -69,16 +69,16 @@ public class Main {
                 System.out.println("Opção inválida - Tente novamente");
         }
     }
-    
+
     private static void abrirProcesso() {
         System.out.println("\n--- Novo Processo ---");
-        
+
         System.out.print("Nome do solicitante: ");
         String solicitante = scan.nextLine();
-        
+
         System.out.print("Tipo de serviço: ");
         String tipoServico = scan.nextLine();
-        
+
         System.out.print("Prioridade (1-Baixa, 2-Normal, 3-Urgente): ");
         int prioridade;
         try {
@@ -91,7 +91,7 @@ public class Main {
             System.out.println("Valor inválido - Usando Normal (2).");
             prioridade = 2;
         }
-        
+
         Processo novoProcesso = new Processo(solicitante, tipoServico, prioridade);
         central.abrirProcesso(novoProcesso);
     }

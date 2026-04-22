@@ -15,17 +15,17 @@ public class PilhaProcesso {
     }
 
     public Processo pop() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new PilhaVaziaException();
         }
-    int topo = vetor.getTamanho() - 1;
-    Processo removido = vetor.remover(topo);
-    System.out.println("Foi desempilhado:" + removido);
-    return removido;
+        int topo = vetor.getTamanho() - 1;
+        Processo removido = vetor.remover(topo);
+        System.out.println("Foi desempilhado:" + removido);
+        return removido;
     }
 
     public Processo topo() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new PilhaVaziaException();
         }
         int topo = vetor.getTamanho() - 1;
@@ -38,12 +38,12 @@ public class PilhaProcesso {
         }
         System.out.println("-- A pilha foi limpa --");
     }
-    
+
     public VetorDinamico getVetor() {
         return vetor;
     }
 
-    public int tamanho(){
+    public int tamanho() {
         return vetor.getTamanho();
     }
 }
