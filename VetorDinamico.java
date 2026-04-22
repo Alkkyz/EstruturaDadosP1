@@ -84,7 +84,7 @@ public class VetorDinamico {
     }
 
     public Processo get(int indice) {
-        if(indice < 0 || indice >= tamanho) {
+        if (indice < 0 || indice >= tamanho) {
             return null;
         }
         return dados[indice];

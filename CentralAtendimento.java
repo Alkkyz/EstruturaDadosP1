@@ -1,9 +1,9 @@
 public class CentralAtendimento {
-    private PilhaProcesso pilhaPrincipal;
+    private PilhaPrioridade pilhaPrincipal;
     private PilhaProcesso pilhaSecundaria;
 
     public CentralAtendimento() {
-        this.pilhaPrincipal = new PilhaProcesso();
+        this.pilhaPrincipal = new PilhaPrioridade();
         this.pilhaSecundaria = new PilhaProcesso();
     }
 
@@ -13,7 +13,7 @@ public class CentralAtendimento {
 
         if (!pilhaSecundaria.isEmpty()) {
             System.out.println("-- Eliminando histórico --");
-            pilhaSecundaria.limpar(); // adicionar limpar()
+            pilhaSecundaria.limpar();
         }
 
         System.out.println("-- Novo Processo Aberto com Sucesso --");
@@ -51,13 +51,7 @@ public class CentralAtendimento {
             System.out.println("-- Nenhum Processo Pendente --");
             return;
         }
-        System.out.println("-- Processos aguardando atendimento --");
-        VetorDinamico vetor = pilhaPrincipal.getVetor();
-        for (int i = 0; i < vetor.getTamanho(); i++) {
-            Processo p = vetor.get(i);
-            System.out.println((i + 1) + " - " + p);
-        }
-        System.out.println("Total pendentes: " + vetor.getTamanho() + "\n");
+        pilhaPrincipal.listar();
     }
 
     public void listarHistorico() {
